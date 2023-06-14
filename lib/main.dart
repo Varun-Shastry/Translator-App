@@ -1,13 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:translate_application/home_page.dart';
 import 'package:translate_application/login_page.dart';
 import 'package:get/get.dart';
+import 'package:translate_application/signup_page.dart';
+import 'package:translate_application/test.dart';
 
-Future main() async {
+void main () async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
-
-  runApp(const MyApp());
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +18,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      initialRoute: 'home_page',
+      routes: {
+        'home_page':(context) => MyHomePage(),
+        'signup_page':(context) => SignUp(),
+        'login_page':(context) => LoginPage(),
+      },
     );
   }
 }

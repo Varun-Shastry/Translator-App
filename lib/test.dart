@@ -18,6 +18,8 @@ class _MyHomePageState extends State<MyHomePage> {
     "Hindi": "hi",
     "English": "en",
     "Urdu": "ur",
+    "French": "fr",
+    "Spanish": "es"
   };
 
   void trans() {
